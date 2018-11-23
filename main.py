@@ -25,6 +25,8 @@ def prime_factor(num_x, lcm=False):
 	return pf_x_sum
 
 def main():
+	global num_prime
+	num_prime=prime_calc()
 	num_1=int(input("Enter number 1: "))
 	num_2=int(input("Enter number 2: "))
 	num_lcm=int(input("Enter LCM: "))
@@ -66,23 +68,22 @@ def main():
 		num_3_list.append(num_3*element)
 	print("Possible values of Num 3 are :")
 	print(num_3_list)
-	#for element in max_loc:
-	#	num_3_x=
 
-global num_prime
-num_prime=[2]
-non_prime=0
-for i in range (3,1000):
-	for j in range (2,1000):
-		if j>i:
-			break
-		else:
-			if (i!=j) & (i%j==0):
-				non_prime=1
-				break
-	if non_prime==0:
-		num_prime.append(i)
+def prime_calc():
+	num_prime=[2]
 	non_prime=0
+	for i in range (3,1000):
+		for j in range (2,1000):
+			if j>i:
+				break
+			else:
+				if (i!=j) & (i%j==0):
+					non_prime=1
+					break
+		if non_prime==0:
+			num_prime.append(i)
+		non_prime=0
+	return num_prime
 
 while True:
 	main()
