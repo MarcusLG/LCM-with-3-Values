@@ -1,7 +1,6 @@
 import numpy as np
 import pair
 
-
 def prime_factor(num_x, lcm=False):
     pf_x = []
     pf_x_sum = []
@@ -10,15 +9,12 @@ def prime_factor(num_x, lcm=False):
         if element > num_x:
             break
         else:
-            while True:
-                if num_x % element != 0:
-                    break
-                else:
-                    counter += 1
-                    pf_x.append(element)
-                    num_x = num_x/element
+            while (num_x % element == 0):
+                pf_x.append(element)
+                num_x //= element
+                counter += 1
             pf_x_sum.append(counter)
-    if lcm is True:
+    if lcm:
         len_diff = (len(pf_lcm)-1)-len(pf_x_sum)
         while len_diff != 0:
             pf_x_sum.append(0)
@@ -26,16 +22,14 @@ def prime_factor(num_x, lcm=False):
     pf_x_sum.append(pf_x)
     return pf_x_sum
 
-
 def main():
-    global num_prime
+    global num_prime, pf_lcm
     num_prime = prime_calc()
     num_1 = int(input("Enter number 1: "))
     num_2 = int(input("Enter number 2: "))
     num_lcm = int(input("Enter LCM: "))
     if (num_lcm % num_1 != 0) | (num_lcm % num_2 != 0):
-        print ("The input value is invalid.")
-    global pf_lcm
+        print("The input value is invalid.")
     pf_lcm = prime_factor(num_lcm)
     pf_1 = prime_factor(num_1, True)
     pf_2 = prime_factor(num_2, True)
