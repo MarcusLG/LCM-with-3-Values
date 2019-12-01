@@ -70,21 +70,18 @@ def main():
     print("Possible values of Num 3 are :")
     print(num_3_list)
 
+def check_if_is_prime(num):
+    for idx in range(2, num+1):
+        if (num != idx) & (num % idx == 0):
+            return False
+    return True
 
 def prime_calc():
     num_prime = [2]
-    non_prime = 0
     for i in range(3, 1000):
-        for j in range(2, 1000):
-            if j > i:
-                break
-            else:
-                if (i != j) & (i % j == 0):
-                    non_prime = 1
-                    break
-        if non_prime == 0:
+        is_prime = check_if_is_prime(i)
+        if is_prime:
             num_prime.append(i)
-        non_prime = 0
     return num_prime
 
 while True:
