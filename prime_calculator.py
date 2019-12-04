@@ -1,4 +1,4 @@
-class PrimeNumberCalculator():
+class PrimeCalculator():
     def __init__(self):
         self.prime_num_list = self.find_prime_list_calc()
         
