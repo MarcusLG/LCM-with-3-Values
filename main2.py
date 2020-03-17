@@ -62,8 +62,8 @@ def solution(LCM,a,b):
     pfc = filtering(pfc_a, pfc_b, k)
     superset = supersetlist(pfc)
     superset += [LCM // np.prod(superset)] # add the missing integer
-    superset.sort()
     result = []
+    result +=  [superset[-1]]
     n = len(superset)
     for i in range(n):
         j = i + 1
