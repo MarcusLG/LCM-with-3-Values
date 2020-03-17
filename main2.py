@@ -88,7 +88,7 @@ def get_input(valid=True):
         elif (type(num_1) is not int) or (type(num_2) is not int):
             print("Please enter an integer number.")
         else:
-            break
+            valid = False
     return num_lcm, num_1, num_2
 
 while True:
